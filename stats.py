@@ -16,9 +16,12 @@ def condition(x):
 print("Count:", sum(condition(x) for x in a))
 
 min = min(a)
+
+a.sort()
+min = a[0]
 print("Minimum:", min)
 
-max = max(a)
+max = a[-1]
 print("Maximum:", max)
 
 def averageoflist(a):
@@ -36,18 +39,18 @@ SUM =0
 for i in a:
 	SUM +=(i-mean)**2
 stdeV = math.sqrt(SUM/(len(a)-1))
-print("Std. dev:", (f'{stdeV:.3f}')
+print("Std. dev:", (f'{stdeV:.3f}'))
 
-n = len(a)
-a.sort()
+# n = len(a)
+#a.sort()
   
-if n % 2 == 0:
-    median1 = n_num[n//2]
-    median2 = n_num[n//2 - 1]
-    median = (median1 + median2)/2
-else:
-    median = n_num[n//2]
-print("Median: " + str(median))
+#if n % 2 == 0:
+#    median1 = n_num[n//2]
+#    median2 = n_num[n//2 - 1]
+#    median = (median1 + median2)/2
+#else:
+#    median = n_num[n//2]
+#print("Median: " + str(median))
 
 
 #(f'{gc_count/len(dna):.2f}')
