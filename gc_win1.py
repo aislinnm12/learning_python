@@ -10,10 +10,12 @@ w = 11
 
 gc_count = 0
 
-for i in range(0, len(seq), 1):	
+for i in range(0, len(seq) -w +1, 1):	
 	if seq[i] == "G" or seq[i] == "C":
 		gc_count += 1
-		print(i, seq[i:i+11], f'{gc_count/len(seq):.4f}')
+		print(i, seq[i:i+w], f'{gc_count/len(seq):.4f}')
+
+
 
 
 """
