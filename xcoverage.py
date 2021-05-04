@@ -13,23 +13,46 @@ import random
 
 # like birthday problem
 
-gen_size = []
-read_num =[]
-read_len = []
+gen_size = int(sys.argv[1])
+read_num = int(sys.argv[2])
+read_len = int(sys.argv[3])
 
-for j in range[read_num]:
-		chrom = random.randint(0, read_len-1)
-		gen_size[chrom] += 1
-		
-#for read_len in chrom:
-#		if read_num > 1:
-#			dup += 1
-#			break
-			
-min = read_len[0]
-max = read_len[-1]
-avg = gen_size / read_len
-print(min, max, avg)
+
+
+# create empty genome
+
+chrom = [0] * gen_size
+
+
+
+# fill up genome with random reads
+
+for i in range(read_num):
+	start = random.randint(0, gen_size-read_len)
+#	print(start)
+	end = start + read_len
+	for coor in range(start, end):
+		chrom[coor] += 1
+	
+print(chrom)
+
+
+
+# look for min, max, and avg
+min_len = 9999
+minim = []
+for i in range(+read_len, -read_len):
+	if read_len(i) < min_len:
+		min_len = read_len(i)
+		minim = i 
+	
+
+print(minim, read_num, read_len)
+
+
+
+
+
 
 """
 python3 xcoverage.py 1000 100 100
