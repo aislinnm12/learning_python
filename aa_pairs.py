@@ -9,8 +9,9 @@ alphabet = "ACDEFGHIKLMNPQRSTVWY"
 
 import itertools
 for i in itertools.combinations(alphabet, 2):
-	print(i)
-
+	print(i[0], 1[1])
+	count += 1
+print(count)
 
 """
 python3 aa_pairs.py
