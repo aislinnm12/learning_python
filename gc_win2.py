@@ -12,14 +12,25 @@ seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
 w = 11
 gc_count = 0
 
-for i in range(0, 11):	
+for i in range(0, w):	
 	if seq[i] == "G" or seq[i] == "C":
 		gc_count += 1
-		print(i, seq[0:11], f'{gc_count/len(seq):.4f}')
-for i in range(12, 23):	
+print(i, seq[0:w], f'{gc_count/len(seq):.4f}')
+		
+		
+		
+for nt in seq[0:w]:
+	if nt == 'C' or nt == 'G': gc_count += 1
+		
+for i in range(1, len(seq)-w):	
+	off = seq[i-1]
+	on = seq[i+w]
+	if off == 'C' or off == 'G': gc_count -+ 1
+	if on == 'C' or on == 'G': gc_count += 1 
+	print() 
 	if seq[i] == "G" or seq[i] == "C":
 		gc_count += 1
-		print(i, seq[12:23], f'{gc_count/len(seq):.4f}')
+		print(i, len(seq)+w, f'{gc_count/len(seq):.4f}')
 	
 #	if seq[i] == "G" or seq[i] == "C":
 #		gc_count += 1
