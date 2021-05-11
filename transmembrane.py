@@ -35,7 +35,7 @@ with open(sys.argv[1]) as fp:
 print(len(ids), len(proteins))
 
 w=11
-for ids.seq in zip(ids,proteins):
+for id,seq in zip(ids,proteins):
 	print(ids, len(seq))
 	for i in range(len(seq)-w + 1):
 		print(i, kd(seq[i:i+w]))
