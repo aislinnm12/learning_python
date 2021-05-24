@@ -8,7 +8,35 @@
 #2. look for orfs and keep track of longest one
 #3. translate the longest orf
 
+import argparse
+import mcb185
 
+parser = argparse.ArgumentParser(description='translate RNAs to proteins')
+parser.add_argument('--fasta', required = True, type = str, metavar='<str>', 
+	help = 'fasta file needed')
+arg = parser.parse_args()
+
+fasta = {}
+antifasta = {}	
+for name, seq in mcb185.read_fasta(arg.fasta):
+	fasta[name] = seq #make dictionary of fasta sequences
+	antifasta[name] = mcb185.anti(seq) #makes dictionary of revcomp
+
+for name, seq in fasta.items():
+	fasta[name] = mcb185.longestorf(seq) #changes value to longest orf
+
+for name, seq in antifasta.items():
+	antifasta[name] = mcb185.longestorf(seq) #changes value to longest orf
+
+for name, seq in fasta.items():
+	if len(fasta[name]) > len(antifasta[name]):
+		print(f'>{name}')
+		print(mcb185.translate(seq))
+	else:
+		sequence = antifasta[name]
+		print(f'>{name}')
+		print(mcb185.translate(sequence))
+		
 """
 python3 translate_mRNA.py --fasta hs_rna.fa
 >NM_001368885.1
