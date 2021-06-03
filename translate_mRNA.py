@@ -19,14 +19,14 @@ arg = parser.parse_args()
 fasta = {}
 antifasta = {}	
 for name, seq in mcb185.read_fasta(arg.fasta):
-	fasta[name] = seq #make dictionary of fasta sequences
-	antifasta[name] = mcb185.anti(seq) #makes dictionary of revcomp
+	fasta[name] = seq 
+	antifasta[name] = mcb185.anti(seq) 
 
 for name, seq in fasta.items():
-	fasta[name] = mcb185.longestorf(seq) #changes value to longest orf
+	fasta[name] = mcb185.longestorf(seq)
 
 for name, seq in antifasta.items():
-	antifasta[name] = mcb185.longestorf(seq) #changes value to longest orf
+	antifasta[name] = mcb185.longestorf(seq) 
 
 for name, seq in fasta.items():
 	if len(fasta[name]) > len(antifasta[name]):
