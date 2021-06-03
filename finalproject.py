@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # final project
+# generating random first and last names
 
 import string
 import random
